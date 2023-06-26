@@ -94,6 +94,8 @@ local function browse_project_files(prompt_bufnr)
   local opt = {
     cwd = project_path,
     hidden = config.options.show_hidden,
+    respect_gitignore = not config.options.ignore_gitignore,
+    mode = "insert",
   }
   if cd_successful then
     custom_fb.file_browser(opt)
@@ -117,6 +119,7 @@ local function recent_project_files(prompt_bufnr)
   local opt = {
     cwd_only = true,
     hidden = config.options.show_hidden,
+    no_ignore = config.options.ignore_gitignore,
   }
   if cd_successful then
     builtin.oldfiles(opt)
