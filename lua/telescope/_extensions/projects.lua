@@ -12,6 +12,7 @@ local telescope_config = require("telescope.config").values
 local actions = require("telescope.actions")
 local state = require("telescope.actions.state")
 local builtin = require("telescope.builtin")
+local custom_fb = require "telescope._extensions.file_browser"
 local entry_display = require("telescope.pickers.entry_display")
 
 local history = require("project_nvim.utils.history")
@@ -95,7 +96,7 @@ local function browse_project_files(prompt_bufnr)
     hidden = config.options.show_hidden,
   }
   if cd_successful then
-    builtin.file_browser(opt)
+    custom_fb.file_browser(opt)
   end
 end
 
