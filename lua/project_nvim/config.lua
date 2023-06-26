@@ -27,6 +27,8 @@ M.defaults = {
   -- Show hidden files in telescope
   show_hidden = false,
 
+  ignore_gitignore = false,
+
   -- When set to false, you will get a message when project.nvim changes your
   -- directory.
   silent_chdir = true,

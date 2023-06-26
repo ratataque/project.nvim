@@ -80,6 +80,7 @@ local function find_project_files(prompt_bufnr)
   local opt = {
     cwd = project_path,
     hidden = config.options.show_hidden,
+    no_ignore = config.options.ignore_gitignore,
     mode = "insert",
   }
   if cd_successful then
@@ -157,8 +158,7 @@ local function projects(opts)
       map("n", "r", recent_project_files)
       map("n", "w", change_working_directory)
 
-      map("i", "<c-f>", find_project_files)
-      map("i", "<c-b>", browse_project_files)
+      map("i", "<c-f>", browse_project_files)
       map("i", "<c-d>", delete_project)
       map("i", "<c-s>", search_in_project_files)
       map("i", "<c-r>", recent_project_files)
